@@ -1,0 +1,12 @@
+if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
+
+$hi
+$hello
+$inspire
+$stoic
+$new
+$del
+$list
+
+sad words
