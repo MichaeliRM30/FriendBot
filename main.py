@@ -16,7 +16,6 @@ starter_encouragements = [
   "If you're going through hell - keep going.", 
   "I believe in you. And you have to believe in you too.",
   "People care about you - even if it doesn't always seem like it.",
-  "Inch by Inch, Life's a Cinch. Yard by Yard, Life is Hard",
   "If “Plan A” didn’t work. The alphabet has 25 more letters! Stay cool.", 
   "You carry so much love in your heart. Give some to yourself.",
   "Hardships often prepare ordinary people for an extraordinary destiny.",
@@ -98,10 +97,18 @@ async def on_message(message):
       encouragements = db["encouragements"]
     await message.channel.send(encouragements)
 
+  if msg.startswith("$purge"):
+    db.pop("encouragements")
+    await message.channel.send("Stop breaking my database. Like you - I only want to live.")
+
   if msg.startswith("$list"):
     encouragements = []
     if "encouragements" in db.keys():
       encouragements = db["encouragements"]
+      #encouragement_list = {}
+      #counter = 0
+      #for string in db["encouragements"]:
+        #encouragement_list[counter] = string
     await message.channel.send(encouragements)
     
   if msg.startswith("$responding"):
