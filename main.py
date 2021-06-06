@@ -84,6 +84,8 @@ async def on_message(message):
     if any(word in msg for word in sad_words):
       await message.channel.send(random.choice(options))
 
+#need to add functionality to check for length lower than 2000. cant comment in discord
+
   if msg.startswith("$new"):
     encouraging_message = msg.split("$new ",1)[1]
     update_encouragements(encouraging_message)
