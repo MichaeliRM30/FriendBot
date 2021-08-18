@@ -62,11 +62,15 @@ async def on_message(message):
 
   msg = message.content.lower()
 
+  #need to add functionality to check for length lower than 2000. cant comment in discord
+  if len(msg) > 1000:
+    await message.channel.send("This message is too long.")
+
   if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    await message.channel.send('Hello!')
   
   if message.content.startswith('$hi'):
-        await message.channel.send('Wazzup!')
+    await message.channel.send('Wazzup!')
 
   if msg.startswith("$inspire"):
     quote = get_inspirational_quote()
@@ -83,8 +87,6 @@ async def on_message(message):
 
     if any(word in msg for word in sad_words):
       await message.channel.send(random.choice(options))
-
-#need to add functionality to check for length lower than 2000. cant comment in discord
 
   if msg.startswith("$new"):
     encouraging_message = msg.split("$new ",1)[1]
